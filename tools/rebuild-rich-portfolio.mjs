@@ -1,4 +1,5 @@
 import { cp, mkdir, readdir, writeFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -6,6 +7,7 @@ const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const workspace = path.dirname(root);
 const sourceGallery = path.join(workspace, "vercel-apps-github-pages");
 const quantumSource = path.join(sourceGallery, "apps", "quantum-portfolio-rebuild");
+const customProfileSource = path.join(root, "assets", "quantum", "simone-profile-source.png");
 
 const upworkProfile = "https://www.upwork.com/freelancers/~01f0edf7fdbc830b61";
 const currentSite = "https://cosmicbubblegumgirl.github.io/product-design-client-portfolio-pages";
@@ -138,7 +140,7 @@ const badgeItems = [
 const buildLogs = [
   ["Proof-first portfolio", "Turned a project list into a client-facing hub with filters, proof sections, project cards, and live demos."],
   ["Upwork-safe conversion", "Removed direct off-platform contact capture and positioned inquiries as local planning tools with Upwork as the hiring path."],
-  ["Imported work", "Brought in the existing public Pages projects while excluding the old portfolio website from the project gallery."],
+  ["Live projects", "Connected the public app projects and product websites into one client-viewable project gallery."],
   ["Unique product sites", "Rebuilt the 10 product concepts with distinct visual systems, logos, multi-page navigation, and domain-specific demos."],
   ["Full stack signal", "Reframed the homepage around full stack web development, UX design, product design, and innovative thinking."]
 ];
@@ -452,7 +454,7 @@ function tags(items) {
 }
 
 function importedCard(project) {
-  return `<article class="project-card imported" data-type="Imported Work" data-search="${esc(`${project.name} ${project.category} ${project.summary} ${project.proof}`.toLowerCase())}">
+  return `<article class="project-card imported" data-type="Live App" data-search="${esc(`${project.name} ${project.category} ${project.summary} ${project.proof}`.toLowerCase())}">
     <a class="shot-link" href="${esc(project.link)}" target="_blank" rel="noreferrer">
       <img src="${esc(project.shot)}" alt="${esc(project.name)} screenshot" loading="lazy" />
     </a>
@@ -467,7 +469,7 @@ function importedCard(project) {
 }
 
 function productCard(project) {
-  return `<article class="project-card product" data-type="${esc(project.category)}" data-search="${esc(`${project.name} ${project.title} ${project.domain} ${project.summary} ${project.features.join(" ")}`.toLowerCase())}">
+  return `<article class="project-card product" data-type="Product Website" data-search="${esc(`${project.name} ${project.title} ${project.domain} ${project.category} ${project.summary} ${project.features.join(" ")}`.toLowerCase())}">
     <a class="shot-link" href="projects/${project.slug}/">
       <img src="assets/app-shots/${project.slug}.svg" alt="${esc(project.name)} preview" loading="lazy" />
     </a>
@@ -504,7 +506,6 @@ function indexHtml() {
       <nav aria-label="Portfolio navigation">
         <a href="#proof">Proof</a>
         <a href="#projects">Projects</a>
-        <a href="#product-sites">Product Sites</a>
         <a href="#process">Process</a>
       </nav>
       <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark and light mode"><span data-theme-icon>Dark</span></button>
@@ -514,7 +515,7 @@ function indexHtml() {
         <div class="hero-copy">
           <p class="eyebrow">Upwork-safe portfolio hub</p>
           <h1>Full stack web builds with UX clarity and product design imagination.</h1>
-          <p class="lead">I design and build polished, responsive, interactive web products that clients can inspect. This hub combines my existing project gallery, portfolio proof, and 10 redesigned product websites with distinct brands, pages, and interactions.</p>
+          <p class="lead">I design and build polished, responsive, interactive web products that clients can inspect. This hub combines live app projects, portfolio proof, and product websites with distinct brands, pages, and interactions.</p>
           <div class="hero-actions">
             <a class="button primary" href="#projects">Explore the work</a>
             <a class="button secondary" href="${upworkProfile}" target="_blank" rel="noreferrer">Hire through Upwork</a>
@@ -524,7 +525,7 @@ function indexHtml() {
         <aside class="hero-console" aria-label="Portfolio metrics">
           <div class="console-top"><span></span><span></span><span></span><strong>Portfolio OS</strong></div>
           <div class="console-grid">
-            <article><strong>${importedProjects.length}</strong><span>imported live projects</span></article>
+            <article><strong>${importedProjects.length}</strong><span>live app projects</span></article>
             <article><strong>${productSites.length}</strong><span>unique product sites</span></article>
             <article><strong>${badgeItems.length}</strong><span>credential signals</span></article>
             <article><strong>0</strong><span>off-platform contact traps</span></article>
@@ -580,24 +581,15 @@ function indexHtml() {
 
       <section id="projects" class="section project-section">
         <div class="section-heading">
-          <p class="eyebrow">Imported live projects</p>
-          <h2>All projects from the existing Pages gallery, excluding the old portfolio website.</h2>
-          <p>These are the public app projects from the gallery. Quantum Portfolio is intentionally excluded as a project card because its content now lives inside this site.</p>
+          <p class="eyebrow">Live projects</p>
+          <h2>All live builds in one portfolio.</h2>
+          <p>Explore public apps and product websites with responsive screens, demos, case-study pages, and client-viewable interactions.</p>
         </div>
         <div class="project-tools">
-          <div class="filter-tabs"><button class="active" type="button" data-filter="All">All</button><button type="button" data-filter="Imported Work">Imported Work</button><button type="button" data-filter="Product Site">Product Sites</button></div>
+          <div class="filter-tabs"><button class="active" type="button" data-filter="All">All Projects</button><button type="button" data-filter="Live App">Live Apps</button><button type="button" data-filter="Product Website">Product Websites</button></div>
           <label class="search-box"><span>Search all work</span><input type="search" data-search placeholder="Try fintech, wellness, dashboard, UX..." /></label>
         </div>
-        <div class="project-grid" data-project-grid>${importedProjects.map(importedCard).join("")}</div>
-      </section>
-
-      <section id="product-sites" class="section project-section">
-        <div class="section-heading">
-          <p class="eyebrow">Redesigned product websites</p>
-          <h2>10 distinct brands, each with multiple pages and a working demo.</h2>
-          <p>Each concept now has its own visual language, logo, navigation, case study, and interactive tool that fits the product purpose.</p>
-        </div>
-        <div class="project-grid" data-product-grid>${productSites.map(productCard).join("")}</div>
+        <div class="project-grid" data-project-grid>${[...importedProjects.map(importedCard), ...productSites.map(productCard)].join("")}</div>
       </section>
 
       <section id="process" class="section process-section">
@@ -641,8 +633,16 @@ function microJs() {
   return `(()=>{const cfg=window.SITE_CONFIG;if(!cfg)return;const inputs=[...document.querySelectorAll("[data-demo-input]")];const out=document.querySelector("[data-demo-result]");const label=document.querySelector("[data-demo-label]");function render(){const vals=inputs.map(i=>Number(i.value));const avg=Math.round(vals.reduce((a,b)=>a+b,0)/Math.max(vals.length,1));let text=avg+"%";if(cfg.demo.type==="forecast")text=Math.max(7,Math.round(avg/4))+" days";if(cfg.demo.type==="returns")text=avg>72?"Exchange route":avg>45?"Review route":"Support route";if(cfg.demo.type==="learning")text=avg>72?"Advance path":avg>45?"Practice path":"Coach path";if(cfg.demo.type==="civic")text=avg>70?"Priority works":avg>45?"Service desk":"Needs detail";if(cfg.demo.type==="grocery")text=avg+"%";if(out)out.textContent=text;if(label)label.textContent=cfg.demo.result}inputs.forEach(i=>i.addEventListener("input",render));render();document.querySelector("[data-save-demo]")?.addEventListener("click",()=>{const rows=JSON.parse(localStorage.getItem(cfg.slug+"-demo")||"[]");rows.unshift({site:cfg.name,values:inputs.map(i=>i.value),createdAt:new Date().toISOString()});localStorage.setItem(cfg.slug+"-demo",JSON.stringify(rows));const status=document.querySelector("[data-demo-status]");if(status)status.textContent="Saved locally as a working browser data demo."})})();`;
 }
 
-function motif(project) {
-  const items = {
+function microEnhancements() {
+  return `.section-heading{max-width:860px;margin-bottom:18px}.backend-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:16px}.backend-grid .panel{display:grid;gap:8px}.backend-grid span{color:var(--brand);font-size:.78rem;font-weight:950;text-transform:uppercase}.backend-grid strong{font-size:clamp(2rem,4vw,3.5rem);color:var(--dark)}.workbench{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:16px}.record-list,.workflow-list{display:grid;gap:10px}.record-row,.workflow-row{display:grid;gap:8px;padding:14px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--soft) 72%,#fff)}.record-row span{color:var(--muted);font-weight:800}.record-row progress{width:100%;height:10px;accent-color:var(--brand)}.workflow-row{grid-template-columns:42px 1fr;align-items:start}.workflow-row>span{display:grid;place-items:center;width:34px;height:34px;border-radius:999px;color:#fff;background:var(--brand);font-weight:950}.workflow-row p{margin:0}.mini-form{display:grid;gap:14px}.mini-form label{display:grid;gap:8px;color:var(--muted);font-weight:850}.mini-form input,.mini-form select{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font:inherit}.api-preview{max-height:340px;overflow:auto;margin:0;padding:16px;border-radius:12px;background:#0f172a;color:#dbeafe;font-size:.86rem;line-height:1.55}.backend-section code{padding:2px 6px;border-radius:6px;background:color-mix(in srgb,var(--brand) 12%,#fff)}@media(max-width:880px){.backend-grid,.workbench{grid-template-columns:1fr}}`;
+}
+
+function microAppJs() {
+  return `(()=>{const cfg=window.SITE_CONFIG;if(!cfg)return;const key=cfg.slug+"-records";const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));async function load(){try{const r=await fetch("api.json",{cache:"no-store"});return await r.json()}catch{return null}}function saved(){try{return JSON.parse(localStorage.getItem(key)||"[]")}catch{return[]}}function drawSaved(){const box=document.querySelector("[data-saved-records]");if(!box)return;const rows=saved();box.innerHTML=rows.length?rows.map(row=>'<div class="record-row"><strong>'+esc(row.title)+'</strong><span>'+esc(row.status)+' · saved locally</span><progress max="100" value="'+Number(row.score||72)+'"></progress></div>').join(""):'<p>No local records yet. Add one using the form.</p>'}function draw(data){if(!data)return;document.querySelectorAll("[data-kpi-grid]").forEach(grid=>{grid.innerHTML=(data.metrics||[]).map(m=>'<article class="panel"><span>'+esc(m.label)+'</span><strong>'+esc(m.value)+'</strong></article>').join("")});document.querySelectorAll("[data-record-list]").forEach(list=>{list.innerHTML=[...(data.records||[]),...saved()].map(row=>'<div class="record-row"><strong>'+esc(row.title)+'</strong><span>'+esc(row.status)+' · '+esc(row.updated||"saved locally")+'</span><progress max="100" value="'+Number(row.score||78)+'"></progress></div>').join("")});document.querySelectorAll("[data-workflow-list]").forEach(list=>{list.innerHTML=(data.workflow||[]).map(step=>'<div class="workflow-row"><span>'+esc(step.step)+'</span><p><strong>'+esc(step.title)+'</strong><br/>'+esc(step.detail)+'</p></div>').join("")});const preview=document.querySelector("[data-api-preview]");if(preview)preview.textContent=JSON.stringify(data,null,2)}document.querySelector("[data-record-form]")?.addEventListener("submit",event=>{event.preventDefault();const form=event.currentTarget;const row={title:new FormData(form).get("title")||cfg.name+" record",status:new FormData(form).get("status")||cfg.features?.[0],score:82,updated:"saved locally"};const rows=saved();rows.unshift(row);localStorage.setItem(key,JSON.stringify(rows.slice(0,8)));form.reset();const status=document.querySelector("[data-form-status]");if(status)status.textContent="Record saved to the browser data store.";load().then(draw);drawSaved()});load().then(draw);drawSaved()})();`;
+}
+
+function motifItems(project) {
+  return {
     clinical: ["Urgent case flagged", "Medication data missing", "Nurse handoff ready"],
     finance: ["Runway forecast", "Invoice confidence", "Tax reserve warning"],
     ops: ["Open supervisor shift", "Swap approved", "Overtime risk"],
@@ -654,24 +654,65 @@ function motif(project) {
     property: ["Leak reported", "Vendor packet", "Tenant status"],
     grocery: ["Staples rebuilt", "Substitution locked", "Basket confidence"]
   }[project.vibe] || project.features;
-  return items.map((item) => `<article class="motif-card"><strong>${esc(item)}</strong><p>${esc(project.summary)}</p></article>`).join("");
+}
+
+function backendData(project) {
+  const records = motifItems(project).map((title, index) => ({
+    id: `${project.slug}-${index + 1}`,
+    title,
+    owner: project.pages[index % project.pages.length],
+    status: project.features[index % project.features.length],
+    score: 94 - index * 11,
+    updated: `${12 + index * 7} min ago`
+  }));
+  return {
+    product: project.name,
+    endpoint: `projects/${project.slug}/api.json`,
+    backend: "GitHub Pages-compatible JSON data service with browser persistence for write-like interactions.",
+    metrics: [
+      { label: project.demo.result, value: project.demo.type === "forecast" ? "24 days" : "86%" },
+      { label: "Active records", value: String(records.length + project.features.length) },
+      { label: "Saved locally", value: "Yes" }
+    ],
+    records,
+    workflow: project.features.map((feature, index) => ({
+      step: index + 1,
+      title: feature,
+      detail: `${project.name} uses ${feature.toLowerCase()} to support ${project.pages[index % project.pages.length].toLowerCase()} decisions.`
+    }))
+  };
+}
+
+function motif(project) {
+  return motifItems(project).map((item) => `<article class="motif-card"><strong>${esc(item)}</strong><p>${esc(project.summary)}</p></article>`).join("");
 }
 
 function microPage(project, page) {
   const isHome = page === "home";
   const isDemo = page === "demo";
-  const headline = isHome ? project.tagline : page === "product" ? `${project.name} product experience` : page === "case-study" ? `${project.name} product design case study` : project.demo.label;
-  const body = isHome ? project.summary : page === "product" ? `Explore the product structure, feature logic, and domain-specific interaction model behind ${project.name}.` : page === "case-study" ? `A spec portfolio project showing UX strategy, interface decisions, metrics, and handoff thinking for ${project.domain}.` : project.demo.prompt;
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>${esc(pageTitle(project, isHome ? "home" : headline))}</title><link rel="icon" href="logo.svg" type="image/svg+xml"/><link rel="stylesheet" href="../../assets/microsite.css"/><style>:root{--brand:${project.color};--accent:${project.accent};--dark:${project.dark};--soft:${project.soft}}</style></head><body><div class="site-shell"><header class="site-header"><a class="brand" href="./"><img src="logo.svg" alt="${esc(project.name)} logo"/><span><strong>${esc(project.name)}</strong><small>${esc(project.domain)}</small></span></a><nav><a href="./">Home</a><a href="product.html">Product</a><a href="case-study.html">Case Study</a><a href="demo.html">Demo</a><a href="${currentSite}/">Portfolio hub</a></nav></header><main><section class="hero"><div><p class="eyebrow">${esc(project.category)} / Spec product website</p><h1>${esc(headline)}</h1><p>${esc(body)}</p><div class="tag-row">${tags(project.features)}</div><div class="hero-actions"><a class="button primary" href="demo.html">Try ${esc(project.demo.label)}</a><a class="button secondary" href="case-study.html">Read case study</a></div></div><aside class="visual"><div class="visual-top"><span></span><span></span><span></span><strong>${esc(project.pages[0])}</strong></div><div class="visual-body"><div class="motif">${motif(project)}</div></div></aside></section>${isDemo ? demoSection(project) : contentSections(project, page)}</main><footer class="footer"><img src="logo.svg" alt="" aria-hidden="true"/><p><strong>${esc(project.name)}</strong><br/>Designed by me, Simone Govender. Concept/spec product website for portfolio use.</p></footer><script>window.SITE_CONFIG=${safeJson(project)}</script><script src="../../assets/microsite.js"></script></div></body></html>`;
+  const isDashboard = page === "dashboard";
+  const headline = isHome ? project.tagline : page === "product" ? `${project.name} product experience` : page === "case-study" ? `${project.name} product design case study` : isDashboard ? `${project.name} live dashboard` : project.demo.label;
+  const body = isHome ? project.summary : page === "product" ? `Explore the product structure, feature logic, and domain-specific interaction model behind ${project.name}.` : page === "case-study" ? `A spec portfolio project showing UX strategy, interface decisions, metrics, and handoff thinking for ${project.domain}.` : isDashboard ? `A dynamic front end reading a local JSON data layer, rendering live records, and saving client-side state.` : project.demo.prompt;
+  const pageContent = isDemo ? demoSection(project) : isDashboard ? dashboardSection(project) : contentSections(project, page);
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>${esc(pageTitle(project, isHome ? "home" : headline))}</title><link rel="icon" href="logo.svg" type="image/svg+xml"/><link rel="stylesheet" href="../../assets/microsite.css"/><style>:root{--brand:${project.color};--accent:${project.accent};--dark:${project.dark};--soft:${project.soft}}</style></head><body><div class="site-shell"><header class="site-header"><a class="brand" href="./"><img src="logo.svg" alt="${esc(project.name)} logo"/><span><strong>${esc(project.name)}</strong><small>${esc(project.domain)}</small></span></a><nav><a href="./">Home</a><a href="product.html">Product</a><a href="dashboard.html">Dashboard</a><a href="case-study.html">Case Study</a><a href="demo.html">Demo</a><a href="${currentSite}/">Portfolio hub</a></nav></header><main><section class="hero"><div><p class="eyebrow">${esc(project.category)} / Front end + data layer</p><h1>${esc(headline)}</h1><p>${esc(body)}</p><div class="tag-row">${tags(project.features)}</div><div class="hero-actions"><a class="button primary" href="demo.html">Try ${esc(project.demo.label)}</a><a class="button secondary" href="dashboard.html">Open dashboard</a></div></div><aside class="visual"><div class="visual-top"><span></span><span></span><span></span><strong>${esc(project.pages[0])}</strong></div><div class="visual-body"><div class="motif">${motif(project)}</div></div></aside></section>${pageContent}</main><footer class="footer"><img src="logo.svg" alt="" aria-hidden="true"/><p><strong>${esc(project.name)}</strong><br/>Designed by me, Simone Govender. Concept/spec product website for portfolio use.</p></footer><script>window.SITE_CONFIG=${safeJson(project)}</script><script src="../../assets/microsite.js"></script></div></body></html>`;
 }
 
 function contentSections(project, page) {
   const title = page === "case-study" ? "Portfolio case-study framing" : "Purpose-built product pages";
-  return `<section class="section"><div class="grid">${project.features.map((feature) => `<article class="panel"><p class="eyebrow">Feature</p><h2>${esc(feature)}</h2><p>${esc(project.summary)}</p></article>`).join("")}</div></section><section class="section"><div class="demo-card"><div><p class="eyebrow">${esc(title)}</p><h2>Different vibe, different interaction model.</h2><p>This ${esc(project.domain)} concept uses a visual system, pages, and demo mechanics chosen for its audience rather than a generic template.</p></div><div class="steps">${project.pages.map((p) => `<article class="panel"><strong>${esc(p)}</strong><p>${esc(project.name)} page focused on ${esc(p.toLowerCase())}.</p></article>`).join("")}</div></div></section>`;
+  return `<section class="section"><div class="grid">${project.features.map((feature) => `<article class="panel"><p class="eyebrow">Feature</p><h2>${esc(feature)}</h2><p>${esc(project.summary)}</p></article>`).join("")}</div></section>${backendSection(project)}<section class="section"><div class="demo-card"><div><p class="eyebrow">${esc(title)}</p><h2>Different vibe, different interaction model.</h2><p>This ${esc(project.domain)} concept uses a visual system, pages, and demo mechanics chosen for its audience rather than a generic template.</p></div><div class="steps">${["Frontend routes", "JSON data layer", "Saved browser state", "Case study handoff"].map((p) => `<article class="panel"><strong>${esc(p)}</strong><p>${esc(project.name)} includes ${esc(p.toLowerCase())} as part of the full website build.</p></article>`).join("")}</div></div></section>`;
+}
+
+function backendSection(project) {
+  const data = backendData(project);
+  return `<section class="section backend-section"><div class="section-heading"><p class="eyebrow">Working front end + backend layer</p><h2>Dynamic data rendered from <code>api.json</code>.</h2><p>The live GitHub Pages version uses a static JSON endpoint plus local browser storage to simulate read/write product behavior without collecting client contact details.</p></div><div class="backend-grid" data-kpi-grid>${data.metrics.map((metric) => `<article class="panel"><span>${esc(metric.label)}</span><strong>${esc(metric.value)}</strong></article>`).join("")}</div><div class="workbench"><article class="panel"><p class="eyebrow">API records</p><h2>Live queue</h2><div class="record-list" data-record-list>${data.records.map((record) => `<div class="record-row"><strong>${esc(record.title)}</strong><span>${esc(record.status)} · ${esc(record.updated)}</span><progress max="100" value="${record.score}"></progress></div>`).join("")}</div></article><article class="panel"><p class="eyebrow">Workflow logic</p><h2>Product rules</h2><div class="workflow-list" data-workflow-list>${data.workflow.map((step) => `<div class="workflow-row"><span>${step.step}</span><p><strong>${esc(step.title)}</strong><br/>${esc(step.detail)}</p></div>`).join("")}</div></article></div></section>`;
+}
+
+function dashboardSection(project) {
+  return `${backendSection(project)}<section class="section"><div class="demo-card"><div class="panel"><p class="eyebrow">Frontend architecture</p><h2>Responsive routes, fetched state, and saved interactions.</h2><p>${esc(project.name)} ships with multiple pages, a shared design system, a JSON data contract, demo controls, and local persistence so the product feels inspectable and alive on GitHub Pages.</p></div><div class="panel"><p class="eyebrow">Backend contract</p><h2>Data model</h2><pre class="api-preview" data-api-preview>{}</pre></div></div></section>`;
 }
 
 function demoSection(project) {
-  return `<section class="section"><div class="demo-card panel"><div><p class="eyebrow">${esc(project.demo.label)}</p><h2>${esc(project.demo.prompt)}</h2><div class="control-stack">${project.demo.fields.map((field, index) => `<label>${esc(field)}<input type="range" min="10" max="100" value="${60 + index * 10}" data-demo-input /></label>`).join("")}<button class="button primary" type="button" data-save-demo>Save demo state</button><p data-demo-status></p></div></div><div class="result-box"><div><span data-demo-label>${esc(project.demo.result)}</span><strong data-demo-result>0</strong></div></div></div></section>`;
+  return `<section class="section"><div class="demo-card panel"><div><p class="eyebrow">${esc(project.demo.label)}</p><h2>${esc(project.demo.prompt)}</h2><div class="control-stack">${project.demo.fields.map((field, index) => `<label>${esc(field)}<input type="range" min="10" max="100" value="${60 + index * 10}" data-demo-input /></label>`).join("")}<button class="button primary" type="button" data-save-demo>Save demo state</button><p data-demo-status></p></div></div><div class="result-box"><div><span data-demo-label>${esc(project.demo.result)}</span><strong data-demo-result>0</strong></div></div></div></section><section class="section"><div class="demo-card"><form class="panel mini-form" data-record-form><p class="eyebrow">Write-like backend demo</p><h2>Create a saved record.</h2><label>Record title<input name="title" placeholder="${esc(motifItems(project)[0])}" required /></label><label>Status<select name="status">${project.features.map((feature) => `<option>${esc(feature)}</option>`).join("")}</select></label><button class="button primary" type="submit">Save to browser store</button><p data-form-status></p></form><div class="panel"><p class="eyebrow">Saved records</p><h2>Local data store</h2><div class="record-list" data-saved-records></div></div></div></section>${backendSection(project)}`;
 }
 
 async function copyImportedAssets() {
@@ -685,7 +726,8 @@ async function copyImportedAssets() {
     await cp(path.join(sourceGallery, "assets", "app-icons", iconName), path.join(root, project.icon));
     await cp(path.join(sourceGallery, "assets", "app-shots", shotName), path.join(root, project.shot));
   }
-  await cp(path.join(quantumSource, "assets", "simone-profile.png"), path.join(root, "assets", "quantum", "simone-profile.png"));
+  const profileSource = existsSync(customProfileSource) ? customProfileSource : path.join(quantumSource, "assets", "simone-profile.png");
+  await cp(profileSource, path.join(root, "assets", "quantum", "simone-profile.png"));
   await cp(path.join(quantumSource, "assets", "certificates"), path.join(root, "assets", "quantum", "certificates"), { recursive: true });
   certificateFiles = (await readdir(path.join(quantumSource, "assets", "certificates"))).filter((file) => /\.(png|jpe?g|webp|svg)$/i.test(file));
 }
@@ -698,17 +740,17 @@ async function main() {
   await writeFile(path.join(root, "index.html"), indexHtml(), "utf8");
   await writeFile(path.join(root, "styles.css"), mainStyles(), "utf8");
   await writeFile(path.join(root, "app.js"), mainJs(), "utf8");
-  await writeFile(path.join(root, "assets", "microsite.css"), microStyles(), "utf8");
-  await writeFile(path.join(root, "assets", "microsite.js"), microJs(), "utf8");
+  await writeFile(path.join(root, "assets", "microsite.css"), microStyles() + microEnhancements(), "utf8");
+  await writeFile(path.join(root, "assets", "microsite.js"), microJs() + microAppJs(), "utf8");
   await writeFile(path.join(root, "README.md"), `# Simone Govender Full Stack Web Developer Portfolio
 
 Standalone GitHub Pages portfolio hub for Upwork-safe project viewing.
 
 Included:
 
-- Imported public projects from the existing Pages gallery, excluding the old portfolio website.
+- Live app projects and product websites displayed together in one project gallery.
 - Quantum portfolio proof content folded into the homepage as credentials, timeline, build logs, and capability signals.
-- 10 redesigned product websites with unique branding, multiple pages, and interactive demos.
+- 10 product websites with unique branding, multiple pages, JSON data endpoints, dashboard pages, and interactive demos.
 - Dark/light theme toggle, search, filters, and Upwork-safe hiring CTA.
 `, "utf8");
   for (const project of productSites) {
@@ -717,8 +759,10 @@ Included:
     await writeFile(path.join(dir, "logo.svg"), logoSvg(project), "utf8");
     await writeFile(path.join(root, "assets", "app-icons", `${project.slug}.svg`), logoSvg(project), "utf8");
     await writeFile(path.join(root, "assets", "app-shots", `${project.slug}.svg`), shotSvg(project), "utf8");
+    await writeFile(path.join(dir, "api.json"), JSON.stringify(backendData(project), null, 2), "utf8");
     await writeFile(path.join(dir, "index.html"), microPage(project, "home"), "utf8");
     await writeFile(path.join(dir, "product.html"), microPage(project, "product"), "utf8");
+    await writeFile(path.join(dir, "dashboard.html"), microPage(project, "dashboard"), "utf8");
     await writeFile(path.join(dir, "case-study.html"), microPage(project, "case-study"), "utf8");
     await writeFile(path.join(dir, "demo.html"), microPage(project, "demo"), "utf8");
   }

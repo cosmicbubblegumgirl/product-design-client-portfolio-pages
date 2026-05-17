@@ -1,0 +1,67 @@
+{
+  "product": "LearnLoop",
+  "endpoint": "projects/learnloop/api.json",
+  "backend": "GitHub Pages-compatible JSON data service with browser persistence for write-like interactions.",
+  "metrics": [
+    {
+      "label": "Recommended path",
+      "value": "86%"
+    },
+    {
+      "label": "Active records",
+      "value": "7"
+    },
+    {
+      "label": "Saved locally",
+      "value": "Yes"
+    }
+  ],
+  "records": [
+    {
+      "id": "learnloop-1",
+      "title": "Objective mapped",
+      "owner": "Course Builder",
+      "status": "Objective mapping",
+      "score": 94,
+      "updated": "12 min ago"
+    },
+    {
+      "id": "learnloop-2",
+      "title": "Checkpoint branch",
+      "owner": "Learner Path",
+      "status": "Adaptive checkpoints",
+      "score": 83,
+      "updated": "19 min ago"
+    },
+    {
+      "id": "learnloop-3",
+      "title": "Confidence check",
+      "owner": "Case Study",
+      "status": "Confidence prompts",
+      "score": 72,
+      "updated": "26 min ago"
+    }
+  ],
+  "workflow": [
+    {
+      "step": 1,
+      "title": "Objective mapping",
+      "detail": "LearnLoop uses objective mapping to support course builder decisions."
+    },
+    {
+      "step": 2,
+      "title": "Adaptive checkpoints",
+      "detail": "LearnLoop uses adaptive checkpoints to support learner path decisions."
+    },
+    {
+      "step": 3,
+      "title": "Confidence prompts",
+      "detail": "LearnLoop uses confidence prompts to support case study decisions."
+    },
+    {
+      "step": 4,
+      "title": "Cohort insights",
+      "detail": "LearnLoop uses cohort insights to support live demo decisions."
+    }
+  ]
+}

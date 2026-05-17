@@ -1,0 +1,67 @@
+{
+  "product": "CivicLink",
+  "endpoint": "projects/civiclink/api.json",
+  "backend": "GitHub Pages-compatible JSON data service with browser persistence for write-like interactions.",
+  "metrics": [
+    {
+      "label": "Department route",
+      "value": "86%"
+    },
+    {
+      "label": "Active records",
+      "value": "7"
+    },
+    {
+      "label": "Saved locally",
+      "value": "Yes"
+    }
+  ],
+  "records": [
+    {
+      "id": "civiclink-1",
+      "title": "Issue routed",
+      "owner": "Report Issue",
+      "status": "Issue finder",
+      "score": 94,
+      "updated": "12 min ago"
+    },
+    {
+      "id": "civiclink-2",
+      "title": "Photo accepted",
+      "owner": "Status Tracker",
+      "status": "Accessible forms",
+      "score": 83,
+      "updated": "19 min ago"
+    },
+    {
+      "id": "civiclink-3",
+      "title": "Status updated",
+      "owner": "Case Study",
+      "status": "Department routing",
+      "score": 72,
+      "updated": "26 min ago"
+    }
+  ],
+  "workflow": [
+    {
+      "step": 1,
+      "title": "Issue finder",
+      "detail": "CivicLink uses issue finder to support report issue decisions."
+    },
+    {
+      "step": 2,
+      "title": "Accessible forms",
+      "detail": "CivicLink uses accessible forms to support status tracker decisions."
+    },
+    {
+      "step": 3,
+      "title": "Department routing",
+      "detail": "CivicLink uses department routing to support case study decisions."
+    },
+    {
+      "step": 4,
+      "title": "Status language",
+      "detail": "CivicLink uses status language to support live demo decisions."
+    }
+  ]
+}

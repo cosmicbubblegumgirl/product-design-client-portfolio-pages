@@ -1,0 +1,67 @@
+{
+  "product": "CareFlow",
+  "endpoint": "projects/careflow/api.json",
+  "backend": "GitHub Pages-compatible JSON data service with browser persistence for write-like interactions.",
+  "metrics": [
+    {
+      "label": "Nurse priority score",
+      "value": "86%"
+    },
+    {
+      "label": "Active records",
+      "value": "7"
+    },
+    {
+      "label": "Saved locally",
+      "value": "Yes"
+    }
+  ],
+  "records": [
+    {
+      "id": "careflow-1",
+      "title": "Urgent case flagged",
+      "owner": "Triage",
+      "status": "Risk flags",
+      "score": 94,
+      "updated": "12 min ago"
+    },
+    {
+      "id": "careflow-2",
+      "title": "Medication data missing",
+      "owner": "Patient Intake",
+      "status": "Completeness scoring",
+      "score": 83,
+      "updated": "19 min ago"
+    },
+    {
+      "id": "careflow-3",
+      "title": "Nurse handoff ready",
+      "owner": "Case Study",
+      "status": "Escalation notes",
+      "score": 72,
+      "updated": "26 min ago"
+    }
+  ],
+  "workflow": [
+    {
+      "step": 1,
+      "title": "Risk flags",
+      "detail": "CareFlow uses risk flags to support triage decisions."
+    },
+    {
+      "step": 2,
+      "title": "Completeness scoring",
+      "detail": "CareFlow uses completeness scoring to support patient intake decisions."
+    },
+    {
+      "step": 3,
+      "title": "Escalation notes",
+      "detail": "CareFlow uses escalation notes to support case study decisions."
+    },
+    {
+      "step": 4,
+      "title": "Audit-friendly handoff",
+      "detail": "CareFlow uses audit-friendly handoff to support live demo decisions."
+    }
+  ]
+}

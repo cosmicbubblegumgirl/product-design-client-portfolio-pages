@@ -1,0 +1,67 @@
+{
+  "product": "HireSignal",
+  "endpoint": "projects/hiresignal/api.json",
+  "backend": "GitHub Pages-compatible JSON data service with browser persistence for write-like interactions.",
+  "metrics": [
+    {
+      "label": "Pipeline risk",
+      "value": "86%"
+    },
+    {
+      "label": "Active records",
+      "value": "7"
+    },
+    {
+      "label": "Saved locally",
+      "value": "Yes"
+    }
+  ],
+  "records": [
+    {
+      "id": "hiresignal-1",
+      "title": "Feedback complete",
+      "owner": "Pipeline",
+      "status": "Stage age",
+      "score": 94,
+      "updated": "12 min ago"
+    },
+    {
+      "id": "hiresignal-2",
+      "title": "Stage age risk",
+      "owner": "Scorecards",
+      "status": "Evidence scorecards",
+      "score": 83,
+      "updated": "19 min ago"
+    },
+    {
+      "id": "hiresignal-3",
+      "title": "Candidate update",
+      "owner": "Case Study",
+      "status": "Decision summary",
+      "score": 72,
+      "updated": "26 min ago"
+    }
+  ],
+  "workflow": [
+    {
+      "step": 1,
+      "title": "Stage age",
+      "detail": "HireSignal uses stage age to support pipeline decisions."
+    },
+    {
+      "step": 2,
+      "title": "Evidence scorecards",
+      "detail": "HireSignal uses evidence scorecards to support scorecards decisions."
+    },
+    {
+      "step": 3,
+      "title": "Decision summary",
+      "detail": "HireSignal uses decision summary to support case study decisions."
+    },
+    {
+      "step": 4,
+      "title": "Candidate updates",
+      "detail": "HireSignal uses candidate updates to support live demo decisions."
+    }
+  ]
+}
