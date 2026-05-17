@@ -11,6 +11,7 @@ const customProfileSource = path.join(root, "assets", "quantum", "simone-profile
 
 const upworkProfile = "https://www.upwork.com/freelancers/~01f0edf7fdbc830b61";
 const currentSite = "https://cosmicbubblegumgirl.github.io/product-design-client-portfolio-pages";
+const standaloneSiteBase = "https://cosmicbubblegumgirl.github.io";
 let certificateFiles = [];
 
 const importedProjects = [
@@ -469,18 +470,19 @@ function importedCard(project) {
 }
 
 function productCard(project) {
+  const liveUrl = `${standaloneSiteBase}/${project.slug}/`;
   return `<article class="project-card product" data-type="Product Website" data-search="${esc(`${project.name} ${project.title} ${project.domain} ${project.category} ${project.summary} ${project.features.join(" ")}`.toLowerCase())}">
-    <a class="shot-link" href="projects/${project.slug}/">
+    <a class="shot-link" href="${liveUrl}" target="_blank" rel="noreferrer">
       <img src="assets/app-shots/${project.slug}.svg" alt="${esc(project.name)} preview" loading="lazy" />
     </a>
     <div class="project-body">
-      <div class="project-kicker"><span>${esc(project.domain)}</span><strong>${esc(project.category)}</strong></div>
+      <div class="project-kicker"><span>${esc(project.domain)}</span><strong>Standalone site</strong></div>
       <h3>${esc(project.name)} <span>${esc(project.title)}</span></h3>
       <p>${esc(project.summary)}</p>
       <div class="tag-row">${tags(project.features.slice(0, 3))}</div>
       <div class="card-actions">
-        <a class="button primary small" href="projects/${project.slug}/">Open site</a>
-        <a class="button ghost small" href="projects/${project.slug}/case-study.html">Case study</a>
+        <a class="button primary small" href="${liveUrl}" target="_blank" rel="noreferrer">Open live site</a>
+        <a class="button ghost small" href="${liveUrl}case-study.html" target="_blank" rel="noreferrer">Case study</a>
       </div>
     </div>
   </article>`;
@@ -728,7 +730,7 @@ async function copyImportedAssets() {
   }
   const profileSource = existsSync(customProfileSource) ? customProfileSource : path.join(quantumSource, "assets", "simone-profile.png");
   await cp(profileSource, path.join(root, "assets", "quantum", "simone-profile.png"));
-  await cp(path.join(quantumSource, "assets", "certificates"), path.join(root, "assets", "quantum", "certificates"), { recursive: true });
+  await cp(path.join(quantumSource, "assets", "certificates"), path.join(root, "assets", "quantum", "certificates"), { recursive: true, force: false });
   certificateFiles = (await readdir(path.join(quantumSource, "assets", "certificates"))).filter((file) => /\.(png|jpe?g|webp|svg)$/i.test(file));
 }
 
