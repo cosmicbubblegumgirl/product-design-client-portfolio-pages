@@ -1,6 +1,6 @@
-# Simone Govender Product Design Portfolio
+# Simone Govender Full Stack Web Developer Portfolio
 
-Standalone GitHub Pages site for 10 product design project websites.
+Standalone GitHub Pages site for a full stack web developer, UX designer, product designer, and innovative thinker.
 
 ## Included
 

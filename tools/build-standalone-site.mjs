@@ -156,7 +156,7 @@ function projectCard(project) {
 
 function logoSvg() {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img" aria-labelledby="title">
-  <title id="title">Simone Govender product design portfolio logo</title>
+  <title id="title">Simone Govender full stack web developer portfolio logo</title>
   <rect width="320" height="320" rx="72" fill="#111827"/>
   <circle cx="104" cy="108" r="54" fill="#14b8a6"/>
   <rect x="126" y="80" width="120" height="120" rx="34" fill="#f59e0b"/>
@@ -172,18 +172,18 @@ function indexHtml() {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Simone Govender | Product Design Portfolio</title>
-    <meta name="description" content="A sleek product design portfolio with interactive UX case studies, responsive product websites, and client-ready project demos." />
+    <title>Simone Govender | Full Stack Web Developer, UX Designer & Product Designer</title>
+    <meta name="description" content="A sleek portfolio for a full stack web developer, UX designer, product designer, and innovative thinker with interactive product websites and client-ready demos." />
     <link rel="icon" href="assets/sg-logo.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <a class="brand" href="#top" aria-label="Simone Govender product design portfolio">
+      <a class="brand" href="#top" aria-label="Simone Govender full stack web developer portfolio">
         <img src="assets/sg-logo.svg" alt="SG logo" />
         <span>
           <strong>Simone Govender</strong>
-          <small>Product Design Portfolio</small>
+          <small>Full Stack Web Developer, UX Designer, Product Designer & Innovative Thinker</small>
         </span>
       </a>
       <nav aria-label="Portfolio navigation">
@@ -200,9 +200,9 @@ function indexHtml() {
     <main id="top">
       <section class="hero-section">
         <div class="hero-copy">
-          <p class="eyebrow">Available for product design, UX/UI, dashboards, and polished web apps</p>
-          <h1>Product design projects clients can actually click through.</h1>
-          <p class="lead">A standalone portfolio site for sleek, responsive, interactive product concepts. Each project includes a live product website, UX case-study framing, custom logo, and working browser-based data behavior.</p>
+          <p class="eyebrow">Full stack web developer, UX designer, product designer, and innovative thinker</p>
+          <h1>Interactive web products clients can actually click through.</h1>
+          <p class="lead">A standalone portfolio site for sleek, responsive, interactive product concepts. Each project shows full stack thinking, UX strategy, product design craft, custom branding, and working browser-based data behavior.</p>
           <div class="hero-actions">
             <a class="button primary" href="#projects">View the projects</a>
             <a class="button secondary" href="#contact">Start a project</a>
@@ -298,7 +298,7 @@ function indexHtml() {
 
     <footer>
       <img src="assets/sg-logo.svg" alt="" aria-hidden="true" />
-      <p><strong>Designed by me - Simone Govender.</strong> Product design, UX/UI, responsive frontend builds, and client-viewable project demos.</p>
+      <p><strong>Designed by me - Simone Govender.</strong> Full stack web development, UX design, product design, responsive frontend builds, and client-viewable project demos.</p>
     </footer>
 
     <script>
@@ -374,9 +374,19 @@ a { color: inherit; }
   border-radius: 15px;
   box-shadow: 0 14px 30px var(--shadow);
 }
-.brand span { display: grid; line-height: 1.15; }
+.brand span {
+  display: grid;
+  min-width: 0;
+  line-height: 1.15;
+}
 .brand strong { font-size: 0.98rem; }
-.brand small { color: var(--muted); font-weight: 800; }
+.brand small {
+  max-width: clamp(260px, 34vw, 560px);
+  color: var(--muted);
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: normal;
+}
 nav { display: flex; gap: 8px; }
 nav a, .theme-toggle, .button {
   display: inline-flex;
@@ -561,6 +571,8 @@ footer p { margin: 0; }
 
 @media (max-width: 980px) {
   .topbar { position: static; flex-wrap: wrap; }
+  .brand { flex: 1 1 100%; }
+  .brand small { max-width: 100%; }
   nav { order: 3; width: 100%; overflow-x: auto; padding-bottom: 4px; }
   .hero-section, .contact-section, .project-tools { grid-template-columns: 1fr; }
   .capability-band, .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -690,9 +702,9 @@ async function main() {
   await writeFile(path.join(root, "index.html"), indexHtml(), "utf8");
   await writeFile(path.join(root, "styles.css"), styles(), "utf8");
   await writeFile(path.join(root, "app.js"), appJs(), "utf8");
-  await writeFile(path.join(root, "README.md"), `# Simone Govender Product Design Portfolio
+  await writeFile(path.join(root, "README.md"), `# Simone Govender Full Stack Web Developer Portfolio
 
-Standalone GitHub Pages site for 10 product design project websites.
+Standalone GitHub Pages site for a full stack web developer, UX designer, product designer, and innovative thinker.
 
 ## Included
 
