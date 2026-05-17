@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img" aria-labelledby="title">
+  <title id="title">ReturnReady logo</title>
+  <rect width="320" height="320" rx="72" fill="#fff6ee"/>
+  <circle cx="104" cy="100" r="50" fill="#b44125" opacity=".95"/>
+  <rect x="132" y="76" width="112" height="112" rx="32" fill="#2e7d65" opacity=".92"/>
+  <path d="M82 217c40-46 86-48 156-15" fill="none" stroke="#211a16" stroke-width="20" stroke-linecap="round"/>
+  <text x="160" y="177" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="72" font-weight="900">RR</text>
+</svg>

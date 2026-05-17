@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simone Govender | Product Design Portfolio</title>
+    <meta name="description" content="A sleek product design portfolio with interactive UX case studies, responsive product websites, and client-ready project demos." />
+    <link rel="icon" href="assets/sg-logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Simone Govender product design portfolio">
+        <img src="assets/sg-logo.svg" alt="SG logo" />
+        <span>
+          <strong>Simone Govender</strong>
+          <small>Product Design Portfolio</small>
+        </span>
+      </a>
+      <nav aria-label="Portfolio navigation">
+        <a href="#projects">Projects</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark and light mode">
+        <span data-theme-icon>Dark</span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero-section">
+        <div class="hero-copy">
+          <p class="eyebrow">Available for product design, UX/UI, dashboards, and polished web apps</p>
+          <h1>Product design projects clients can actually click through.</h1>
+          <p class="lead">A standalone portfolio site for sleek, responsive, interactive product concepts. Each project includes a live product website, UX case-study framing, custom logo, and working browser-based data behavior.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">View the projects</a>
+            <a class="button secondary" href="#contact">Start a project</a>
+          </div>
+          <p class="designed">Designed by me - Simone Govender</p>
+        </div>
+        <aside class="hero-console" aria-label="Portfolio metrics">
+          <div class="console-top">
+            <span></span><span></span><span></span>
+            <strong>Client View</strong>
+          </div>
+          <div class="console-grid">
+            <article><strong>10</strong><span>product websites</span></article>
+            <article><strong>6</strong><span>UX domains</span></article>
+            <article><strong>100%</strong><span>responsive</span></article>
+            <article><strong>Live</strong><span>frontend + data demos</span></article>
+          </div>
+          <div class="activity-feed" data-feed></div>
+        </aside>
+      </section>
+
+      <section id="capabilities" class="capability-band">
+        <article>
+          <span>01</span>
+          <h2>UX Strategy</h2>
+          <p>Problem framing, user flows, information architecture, and success metrics.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h2>Interface Design</h2>
+          <p>Clean responsive UI systems, dashboard layouts, product states, and conversion paths.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h2>Interactive Builds</h2>
+          <p>Client-viewable product websites with working forms, filters, saved state, and demos.</p>
+        </article>
+      </section>
+
+      <section id="projects" class="project-section">
+        <div class="section-heading">
+          <p class="eyebrow">New Product Design Projects</p>
+          <h2>Explore the project websites.</h2>
+          <p>Filter by category, search by skill, or open any live site to see the full product concept and portfolio section.</p>
+        </div>
+        <div class="project-tools">
+          <div class="filter-tabs" aria-label="Project filters">
+            <button type="button" class="active" data-filter="All">All</button><button type="button" class="" data-filter="Complex UX">Complex UX</button><button type="button" class="" data-filter="Dashboards">Dashboards</button><button type="button" class="" data-filter="SaaS">SaaS</button><button type="button" class="" data-filter="Commerce">Commerce</button><button type="button" class="" data-filter="Service Design">Service Design</button>
+          </div>
+          <label class="search-box">
+            <span>Search projects</span>
+            <input type="search" data-search placeholder="Try fintech, dashboard, healthcare, mobile..." />
+          </label>
+        </div>
+        <div class="project-grid" data-project-grid>
+          <article class="project-card" data-category="Complex UX" data-search="careflow clinical triage console healthcare saas a high-trust triage workspace that turns messy patient intake into nurse-ready decisions. healthcare ux dashboard ux workflow design">
+    <a class="shot-link" href="projects/careflow/" aria-label="Open CareFlow project website">
+      <img src="assets/app-shots/careflow.svg" alt="CareFlow product website preview" loading="lazy" />
+    </a>
+    <div class="project-body">
+      <div class="project-kicker">
+        <span>Healthcare SaaS</span>
+        <strong>30% faster nurse decision target</strong>
+      </div>
+      <h3>CareFlow <span>Clinical Triage Console</span></h3>
+      <p>A high-trust triage workspace that turns messy patient intake into nurse-ready decisions.</p>
+      <div class="tag-row"><span>Healthcare UX</span><span>Dashboard UX</span><span>Workflow design</span></div>
+      <div class="card-actions">
+        <a class="button primary small" href="projects/careflow/">View live site</a>
+        <button class="button ghost small" type="button" data-open-project="careflow">Case-study notes</button>
+      </div>
+    </div>
+  </article><article class="project-card" data-category="Dashboards" data-search="ledgerlift cash flow forecasting fintech dashboard a forecasting dashboard that helps small businesses understand cash risk before it becomes urgent. fintech ux data visualization decision support">
+    <a class="shot-link" href="projects/ledgerlift/" aria-label="Open LedgerLift project website">
+      <img src="assets/app-shots/ledgerlift.svg" alt="LedgerLift product website preview" loading="lazy" />
+    </a>
+    <div class="project-body">
+      <div class="project-kicker">
+        <span>Fintech Dashboard</span>
+        <strong>Reduce surprise negative-cash events</strong>
+      </div>
+      <h3>LedgerLift <span>Cash Flow Forecasting</span></h3>
+      <p>A forecasting dashboard that helps small businesses understand cash risk before it becomes urgent.</p>
+      <div class="tag-row"><span>Fintech UX</span><span>Data visualization</span><span>Decision support</span></div>
+      <div class="card-actions">
+        <a class="button primary small" href="projects/ledgerlift/">View live site</a>
+        <button class="button ghost small" type="button" data-open-project="ledgerlift">Case-study notes</button>
+      </div>
+    </div>
+  </article><article class="project-card" data-category="SaaS" data-search="shiftmate workforce scheduling operations saas a manager roster and employee mobile flow for swaps, coverage gaps, and schedule clarity. b2b saas mobile ux ops workflows">
+    <a class="shot-link" href="projects/shiftmate/" aria-label="Open ShiftMate project website">
+      <img src="assets/app-shots/shiftmate.svg" alt="ShiftMate product website preview" loading="lazy" />
+    </a>
+    <div class="project-body">
+      <div class="project-kicker">
+        <span>Operations SaaS</span>
+        <strong>Improve 24-hour acknowledgement</strong>
+      </div>
+      <h3>ShiftMate <span>Workforce Scheduling</span></h3>
+      <p>A manager roster and employee mobile flow for swaps, coverage gaps, and schedule clarity.</p>
+      <div class="tag-row"><span>B2B SaaS</span><span>Mobile UX</span><span>Ops workflows</span></div>
+      <div class="card-actions">
+        <a class="button primary small" href="projects/shiftmate/">View live site</a>
+        <button class="button ghost small" type="button" data-open-project="shiftmate">Case-study notes</button>
+      </div>
+    </div>
+  </article><article class="project-card" data-category="Commerce" data-search="returnready reverse logistics portal ecommerce operations a guided return portal that protects customer trust and gives warehouse teams better context. ecommerce ux service design post-purchase">
+    <a class="shot-link" href="projects/returnready/" aria-label="Open ReturnReady project website">
+      <img src="assets/app-shots/returnready.svg" alt="ReturnReady product website preview" loading="lazy" />
+    </a>
+    <div class="project-body">
+      <div class="project-kicker">
+        <span>Ecommerce Operations</span>
+        <strong>Decrease support contacts per return</strong>
+      </div>
+      <h3>ReturnReady <span>Reverse Logistics Portal</span></h3>
+      <p>A guided return portal that protects customer trust and gives warehouse teams better context.</p>
+      <div class="tag-row"><span>Ecommerce UX</span><span>Service design</span><span>Post-purchase</span></div>
+      <div class="card-actions">
+        <a class="button primary small" href="projects/returnready/">View live site</a>
+        <button class="button ghost small" type="button" data-open-project="returnready">Case-study notes</button>
+      </div>
+    </div>
+  </article><article class="project-card" data-category="Complex UX" data-search="learnloop adaptive course builder edtech product a course builder that adapts learning paths without turning instructors into logic-tree builders. edtech ux authoring tools ia">
+    <a class="shot-link" href="projects/learnloop/" aria-label="Open LearnLoop project website">
+      <img src="assets/app-shots/learnloop.svg" alt="LearnLoop product website preview" loading="lazy" />
+    </a>
+    <div class="project-body">
+      <div class="project-kicker">
+        <span>Edtech Product</span>
+        <strong>Improve course completion</strong>
+      </div>
+      <h3>LearnLoop <span>Adaptive Course Builder</span></h3>
+      <p>A course builder that adapts learning paths without turning instructors into logic-tree builders.</p>
+      <div class="tag-row"><span>Edtech UX</span><span>Authoring tools</span><span>IA</span></div>
+      <div class="card-actions">
+        <a class="button primary small" href="projects/learnloop/">View live site</a>
+        <button class="button ghost small" type="button" data-open-project="learnloop">Case-study notes</button>
+      </div>
+    </div>
+  </article><article class="project-card" data-category="Service Design" data-search="civiclink resident service hub govtech service design an accessible municipal service hub for routing, tracking, and understanding public requests. accessibility govtech ux forms">
+    <a class="shot-link" href="projects/civiclink/" aria-label="Open CivicLink project website">
+      <img src="assets/app-shots/civiclink.svg" alt="CivicLink product website preview" loading="lazy" />
+    </a>
+    <div class="project-body">
+      <div class="project-kicker">
+        <span>Govtech Service Design</span>
+        <strong>Increase first-time submissions</strong>
+      </div>
+      <h3>CivicLink <span>Resident Service Hub</span></h3>
+      <p>An accessible municipal service hub for routing, tracking, and understanding public requests.</p>
+      <div class="tag-row"><span>Accessibility</span><span>Govtech UX</span><span>Forms</span></div>
+      <div class="card-actions">
+        <a class="button primary small" href="projects/civiclink/">View live site</a>
+        <button class="button ghost small" type="button" data-open-project="civiclink">Case-study notes</button>
+      </div>
+    </div>
+  </article><article class="project-card" data-category="Dashboards" data-search="greengrid building energy monitor climate tech dashboard an energy dashboard that turns facility meter data into prioritized action cards. climate tech dashboard ux alerts">
+    <a class="shot-link" href="projects/greengrid/" aria-label="Open GreenGrid project website">
+      <img src="assets/app-shots/greengrid.svg" alt="GreenGrid product website preview" loading="lazy" />
+    </a>
+    <div class="project-body">
+      <div class="project-kicker">
+        <span>Climate Tech Dashboard</span>
+        <strong>Increase completed energy actions</strong>
+      </div>
+      <h3>GreenGrid <span>Building Energy Monitor</span></h3>
+      <p>An energy dashboard that turns facility meter data into prioritized action cards.</p>
+      <div class="tag-row"><span>Climate tech</span><span>Dashboard UX</span><span>Alerts</span></div>
+      <div class="card-actions">
+        <a class="button primary small" href="projects/greengrid/">View live site</a>
+        <button class="button ghost small" type="button" data-open-project="greengrid">Case-study notes</button>
+      </div>
+    </div>
+  </article><article class="project-card" data-category="SaaS" data-search="hiresignal recruiting pipeline hr tech saas a recruiting workspace for structured feedback, decision hygiene, and candidate communication. hr tech ux enterprise saas collaboration">
+    <a class="shot-link" href="projects/hiresignal/" aria-label="Open HireSignal project website">
+      <img src="assets/app-shots/hiresignal.svg" alt="HireSignal product website preview" loading="lazy" />
+    </a>
+    <div class="project-body">
+      <div class="project-kicker">
+        <span>HR Tech SaaS</span>
+        <strong>Shorten time in stage</strong>
+      </div>
+      <h3>HireSignal <span>Recruiting Pipeline</span></h3>
+      <p>A recruiting workspace for structured feedback, decision hygiene, and candidate communication.</p>
+      <div class="tag-row"><span>HR tech UX</span><span>Enterprise SaaS</span><span>Collaboration</span></div>
+      <div class="card-actions">
+        <a class="button primary small" href="projects/hiresignal/">View live site</a>
+        <button class="button ghost small" type="button" data-open-project="hiresignal">Case-study notes</button>
+      </div>
+    </div>
+  </article><article class="project-card" data-category="Service Design" data-search="dwellkit rental maintenance proptech mobile and ops a renter-to-vendor maintenance flow with guided reporting, triage, and job packets. proptech ux mobile ux ops handoff">
+    <a class="shot-link" href="projects/dwellkit/" aria-label="Open DwellKit project website">
+      <img src="assets/app-shots/dwellkit.svg" alt="DwellKit product website preview" loading="lazy" />
+    </a>
+    <div class="project-body">
+      <div class="project-kicker">
+        <span>Proptech Mobile And Ops</span>
+        <strong>Increase first-visit fix rate</strong>
+      </div>
+      <h3>DwellKit <span>Rental Maintenance</span></h3>
+      <p>A renter-to-vendor maintenance flow with guided reporting, triage, and job packets.</p>
+      <div class="tag-row"><span>Proptech UX</span><span>Mobile UX</span><span>Ops handoff</span></div>
+      <div class="card-actions">
+        <a class="button primary small" href="projects/dwellkit/">View live site</a>
+        <button class="button ghost small" type="button" data-open-project="dwellkit">Case-study notes</button>
+      </div>
+    </div>
+  </article><article class="project-card" data-category="Commerce" data-search="pantrypilot grocery refill assistant consumer commerce a grocery refill assistant with pantry memory, substitution controls, and checkout confidence. consumer ux commerce ux personalization">
+    <a class="shot-link" href="projects/pantrypilot/" aria-label="Open PantryPilot project website">
+      <img src="assets/app-shots/pantrypilot.svg" alt="PantryPilot product website preview" loading="lazy" />
+    </a>
+    <div class="project-body">
+      <div class="project-kicker">
+        <span>Consumer Commerce</span>
+        <strong>Increase repeat basket completion</strong>
+      </div>
+      <h3>PantryPilot <span>Grocery Refill Assistant</span></h3>
+      <p>A grocery refill assistant with pantry memory, substitution controls, and checkout confidence.</p>
+      <div class="tag-row"><span>Consumer UX</span><span>Commerce UX</span><span>Personalization</span></div>
+      <div class="card-actions">
+        <a class="button primary small" href="projects/pantrypilot/">View live site</a>
+        <button class="button ghost small" type="button" data-open-project="pantrypilot">Case-study notes</button>
+      </div>
+    </div>
+  </article>
+        </div>
+      </section>
+
+      <section id="process" class="process-section">
+        <div class="section-heading">
+          <p class="eyebrow">How I Work</p>
+          <h2>Clear process, polished output, practical handoff.</h2>
+        </div>
+        <ol class="process-list">
+          <li><span>01</span><strong>Frame the product problem</strong><p>Define audience, workflow, constraints, business goal, and what the design needs to prove.</p></li>
+          <li><span>02</span><strong>Map flows and states</strong><p>Shape the journey, empty states, decision points, data states, and handoff requirements.</p></li>
+          <li><span>03</span><strong>Design the interface</strong><p>Build responsive screens with strong hierarchy, clean UI, and client-ready visual polish.</p></li>
+          <li><span>04</span><strong>Launch a viewable demo</strong><p>Package the project as a working website so clients and employers can click through the idea.</p></li>
+        </ol>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <div>
+          <p class="eyebrow">Client Inquiry</p>
+          <h2>Tell me what you want designed.</h2>
+          <p>This form saves locally in the browser as a working portfolio demo. For real work, send the same brief through your preferred hiring platform.</p>
+        </div>
+        <form data-inquiry-form>
+          <label>Name<input required name="name" placeholder="Your name" /></label>
+          <label>Project type<input required name="type" placeholder="Website, dashboard, app, UX redesign..." /></label>
+          <label>Project notes<textarea required name="notes" rows="4" placeholder="Describe the product, audience, and goal"></textarea></label>
+          <button class="button primary" type="submit">Save inquiry</button>
+          <p data-inquiry-status aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <dialog class="project-dialog" data-project-dialog>
+      <button class="close-button" type="button" data-close-dialog aria-label="Close project notes">Close</button>
+      <div data-dialog-content></div>
+    </dialog>
+
+    <footer>
+      <img src="assets/sg-logo.svg" alt="" aria-hidden="true" />
+      <p><strong>Designed by me - Simone Govender.</strong> Product design, UX/UI, responsive frontend builds, and client-viewable project demos.</p>
+    </footer>
+
+    <script>
+      window.PORTFOLIO_PROJECTS = [{"slug":"careflow","name":"CareFlow","title":"Clinical Triage Console","domain":"Healthcare SaaS","category":"Complex UX","metric":"30% faster nurse decision target","summary":"A high-trust triage workspace that turns messy patient intake into nurse-ready decisions.","tags":["Healthcare UX","Dashboard UX","Workflow design"],"color":"#0f766e"},{"slug":"ledgerlift","name":"LedgerLift","title":"Cash Flow Forecasting","domain":"Fintech Dashboard","category":"Dashboards","metric":"Reduce surprise negative-cash events","summary":"A forecasting dashboard that helps small businesses understand cash risk before it becomes urgent.","tags":["Fintech UX","Data visualization","Decision support"],"color":"#2f5bea"},{"slug":"shiftmate","name":"ShiftMate","title":"Workforce Scheduling","domain":"Operations SaaS","category":"SaaS","metric":"Improve 24-hour acknowledgement","summary":"A manager roster and employee mobile flow for swaps, coverage gaps, and schedule clarity.","tags":["B2B SaaS","Mobile UX","Ops workflows"],"color":"#9b5c20"},{"slug":"returnready","name":"ReturnReady","title":"Reverse Logistics Portal","domain":"Ecommerce Operations","category":"Commerce","metric":"Decrease support contacts per return","summary":"A guided return portal that protects customer trust and gives warehouse teams better context.","tags":["Ecommerce UX","Service design","Post-purchase"],"color":"#b44125"},{"slug":"learnloop","name":"LearnLoop","title":"Adaptive Course Builder","domain":"Edtech Product","category":"Complex UX","metric":"Improve course completion","summary":"A course builder that adapts learning paths without turning instructors into logic-tree builders.","tags":["Edtech UX","Authoring tools","IA"],"color":"#6d45d8"},{"slug":"civiclink","name":"CivicLink","title":"Resident Service Hub","domain":"Govtech Service Design","category":"Service Design","metric":"Increase first-time submissions","summary":"An accessible municipal service hub for routing, tracking, and understanding public requests.","tags":["Accessibility","Govtech UX","Forms"],"color":"#246b3f"},{"slug":"greengrid","name":"GreenGrid","title":"Building Energy Monitor","domain":"Climate Tech Dashboard","category":"Dashboards","metric":"Increase completed energy actions","summary":"An energy dashboard that turns facility meter data into prioritized action cards.","tags":["Climate tech","Dashboard UX","Alerts"],"color":"#1d7f49"},{"slug":"hiresignal","name":"HireSignal","title":"Recruiting Pipeline","domain":"HR Tech SaaS","category":"SaaS","metric":"Shorten time in stage","summary":"A recruiting workspace for structured feedback, decision hygiene, and candidate communication.","tags":["HR tech UX","Enterprise SaaS","Collaboration"],"color":"#5b4bd6"},{"slug":"dwellkit","name":"DwellKit","title":"Rental Maintenance","domain":"Proptech Mobile And Ops","category":"Service Design","metric":"Increase first-visit fix rate","summary":"A renter-to-vendor maintenance flow with guided reporting, triage, and job packets.","tags":["Proptech UX","Mobile UX","Ops handoff"],"color":"#7a5d2d"},{"slug":"pantrypilot","name":"PantryPilot","title":"Grocery Refill Assistant","domain":"Consumer Commerce","category":"Commerce","metric":"Increase repeat basket completion","summary":"A grocery refill assistant with pantry memory, substitution controls, and checkout confidence.","tags":["Consumer UX","Commerce UX","Personalization"],"color":"#d18a14"}];
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
