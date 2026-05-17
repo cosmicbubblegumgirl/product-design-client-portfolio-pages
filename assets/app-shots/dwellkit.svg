@@ -1,22 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title">
-  <title id="title">DwellKit website preview</title>
+  <title id="title">DwellKit preview</title>
   <rect width="1200" height="675" fill="#faf7ef"/>
-  <rect x="58" y="54" width="1084" height="567" rx="26" fill="#fff" stroke="rgba(0,0,0,.08)" stroke-width="3"/>
-  <rect x="94" y="90" width="180" height="44" rx="22" fill="#211f19"/>
-  <circle cx="123" cy="112" r="14" fill="#7a5d2d"/>
-  <text x="150" y="119" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="800">DwellKit</text>
-  <rect x="92" y="184" width="422" height="38" rx="19" fill="#7a5d2d"/>
-  <rect x="92" y="244" width="548" height="24" rx="12" fill="#211f19" opacity=".22"/>
-  <rect x="92" y="286" width="472" height="24" rx="12" fill="#211f19" opacity=".14"/>
-  <rect x="92" y="360" width="172" height="54" rx="27" fill="#211f19"/>
-  <rect x="284" y="360" width="172" height="54" rx="27" fill="#287c83"/>
-  <rect x="704" y="156" width="330" height="380" rx="28" fill="#211f19"/>
-  <rect x="740" y="198" width="126" height="15" rx="8" fill="#fff" opacity=".45"/>
-  <rect x="740" y="246" width="236" height="96" rx="22" fill="#7a5d2d"/>
-  <rect x="740" y="374" width="108" height="86" rx="20" fill="#287c83"/>
-  <rect x="872" y="374" width="108" height="86" rx="20" fill="#fff" opacity=".18"/>
-  <rect x="740" y="492" width="196" height="25" rx="13" fill="#fff"/>
-  <rect x="92" y="492" width="160" height="18" rx="9" fill="#7a5d2d"/>
-  <rect x="276" y="492" width="160" height="18" rx="9" fill="#287c83"/>
-  <rect x="460" y="492" width="160" height="18" rx="9" fill="#211f19" opacity=".16"/>
+  <rect x="64" y="64" width="1072" height="547" rx="34" fill="#fff" stroke="#7c5c2d" stroke-opacity=".22" stroke-width="3"/>
+  <rect x="104" y="112" width="220" height="58" rx="29" fill="#231f18"/>
+  <circle cx="136" cy="141" r="18" fill="#7c5c2d"/>
+  <text x="166" y="149" fill="#fff" font-family="Arial, sans-serif" font-weight="800" font-size="24">DwellKit</text>
+  <text x="104" y="250" fill="#231f18" font-family="Georgia, serif" font-size="62" font-weight="700">Maintenance requests with better context from the start.</text>
+  <rect x="104" y="306" width="470" height="18" rx="9" fill="#231f18" opacity=".2"/>
+  <rect x="104" y="344" width="390" height="18" rx="9" fill="#231f18" opacity=".14"/>
+  <rect x="104" y="424" width="156" height="54" rx="27" fill="#231f18"/>
+  <rect x="282" y="424" width="156" height="54" rx="27" fill="#7c5c2d"/>
+  <g transform="translate(710 135)">
+    <rect width="310" height="390" rx="28" fill="#231f18"/>
+    <rect x="34" y="42" width="118" height="14" rx="7" fill="#fff" opacity=".45"/>
+    <rect x="34" y="90" width="230" height="96" rx="22" fill="#7c5c2d"/>
+    <rect x="34" y="220" width="108" height="86" rx="20" fill="#0e7490"/>
+    <rect x="166" y="220" width="108" height="86" rx="20" fill="#fff" opacity=".18"/>
+    <rect x="34" y="338" width="196" height="24" rx="12" fill="#fff"/>
+  </g>
 </svg>

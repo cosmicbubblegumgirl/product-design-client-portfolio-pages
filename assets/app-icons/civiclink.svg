@@ -1,8 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img" aria-labelledby="title">
   <title id="title">CivicLink logo</title>
-  <rect width="320" height="320" rx="72" fill="#f3f8f2"/>
-  <circle cx="104" cy="100" r="50" fill="#246b3f" opacity=".95"/>
-  <rect x="132" y="76" width="112" height="112" rx="32" fill="#c06823" opacity=".92"/>
-  <path d="M82 217c40-46 86-48 156-15" fill="none" stroke="#172018" stroke-width="20" stroke-linecap="round"/>
-  <text x="160" y="177" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="72" font-weight="900">CL</text>
+  <rect width="320" height="320" rx="72" fill="#f0fdf4"/>
+  <circle cx="248" cy="72" r="34" fill="#d97706" opacity=".85"/>
+  <path d="M68 86l64-30 56 28 64-28v178l-64 30-56-28-64 28V86Z" fill="none" stroke="#102016" stroke-width="14"/><path d="M132 56v180M188 84v180" stroke="#166534" stroke-width="12"/><circle cx="160" cy="148" r="26" fill="#d97706"/>
 </svg>

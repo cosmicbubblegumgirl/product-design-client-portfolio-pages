@@ -1,8 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img" aria-labelledby="title">
   <title id="title">GreenGrid logo</title>
-  <rect width="320" height="320" rx="72" fill="#f0f9f3"/>
-  <circle cx="104" cy="100" r="50" fill="#1d7f49" opacity=".95"/>
-  <rect x="132" y="76" width="112" height="112" rx="32" fill="#1d6c9e" opacity=".92"/>
-  <path d="M82 217c40-46 86-48 156-15" fill="none" stroke="#132119" stroke-width="20" stroke-linecap="round"/>
-  <text x="160" y="177" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="72" font-weight="900">GG</text>
+  <rect width="320" height="320" rx="72" fill="#ecfdf5"/>
+  <circle cx="248" cy="72" r="34" fill="#0284c7" opacity=".85"/>
+  <path d="M78 208c6-104 92-160 174-138 10 86-42 168-124 166-24-1-40-10-50-28Z" fill="#15803d"/><path d="M82 232c44-76 88-118 168-160" fill="none" stroke="#0f2116" stroke-width="15" stroke-linecap="round"/>
 </svg>
